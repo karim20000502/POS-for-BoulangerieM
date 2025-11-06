@@ -170,4 +170,59 @@ body {
 .payment-buttons { display: flex; gap: 10px; }
 .payment-buttons button { flex-grow: 1; padding: 12px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; }
 #complete-payment-btn { background-color: #2ecc71; color: white; }
+
 #close-modal-btn { background-color: #95a5a6; color: white; }
+
+/* 2. تنسيقات شاشة الهاتف الذكي (عرض أقصى 768 بكسل) */
+@media (max-width: 768px) {
+    
+    /* جعل الواجهة عمودية: المنتجات أولاً ثم الفاتورة */
+    .pos-container {
+        flex-direction: column;
+        height: auto; /* السماح بالتمرير العمودي */
+    }
+    
+    /* جعل كلا الجزئين يأخذان العرض الكامل */
+    .menu-area, .right-panel {
+        flex: none; /* إلغاء خاصية flex */
+        width: 100%;
+        min-height: 400px; /* لضمان ظهور الجزء الأيمن (الفاتورة) */
+        border-right: none;
+    }
+
+    /* تقليل عدد أعمدة المنتجات إلى 2 */
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+    
+    /* تقليل حجم زر المنتج */
+    .product-button {
+        height: 80px;
+        font-size: 14px;
+    }
+    
+    /* جعل أزرار الإجراءات الرئيسية عمودية */
+    .action-buttons {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    /* تغيير تنسيق لوحة الأرقام لتقليل العرض */
+    .numpad-grid {
+        grid-template-columns: repeat(4, 1fr); /* حافظ على 4 أعمدة لكن عرضها أقل */
+        gap: 4px;
+    }
+    
+    /* إخفاء زر تسجيل الخروج العائم وإضافته في مكان آخر (أو تقليص حجمه) */
+    #logout-btn-pos {
+        position: static;
+        margin: 10px;
+    }
+
+    /* تنسيق شاشات الدخول */
+    .auth-box {
+        width: 90%;
+        margin: 15px;
+    }
+}
